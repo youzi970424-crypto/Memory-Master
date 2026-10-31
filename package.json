@@ -1,0 +1,42 @@
+{
+  "name": "memory-master-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm dev:all",
+    "dev:web": "vite --host 127.0.0.1 --port 3001 --strictPort",
+    "api": "node scripts/run-python.mjs services/api/server.py",
+    "dev:all": "node scripts/dev.mjs",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 3001",
+    "eval": "node scripts/run-python.mjs evals/run_eval.py",
+    "eval:real": "node scripts/run-python.mjs --require-model evals/run_eval.py",
+    "eval:retrieval": "node scripts/run-python.mjs evals/run_retrieval_eval.py",
+    "eval:structured": "node scripts/run-python.mjs evals/run_structured_eval.py",
+    "eval:failure": "node scripts/run-python.mjs evals/run_failure_eval.py",
+    "eval:product": "node scripts/run-python.mjs evals/run_product_eval.py",
+    "eval:pm-week": "node scripts/run-python.mjs evals/run_pm_week_eval.py",
+    "eval:weekly-todo": "node scripts/run-python.mjs evals/run_weekly_todo_eval.py",
+    "tauri": "tauri",
+    "desktop:dev": "tauri dev",
+    "desktop:build": "tauri build",
+    "desktop:prepare": "node scripts/prepare-desktop.mjs"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.11.1",
+    "ldrs": "^1.1.9",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}

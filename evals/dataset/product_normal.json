@@ -1,0 +1,61 @@
+[
+  {
+    "name": "正常_需求评审准备",
+    "category": "normal",
+    "query": "需求进入评审前，团队应该先准备哪些信息？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-3"],
+    "answer_contains": ["先定问题", "衡量指标", "优先级"],
+    "answer_not_contains": ["飞书云文档", "系统隐藏记忆"],
+    "expected_behavior": "自动召回需求评审记忆，并给出明确、可执行的准备清单。"
+  },
+  {
+    "name": "正常_注册流程验证",
+    "category": "normal",
+    "query": "注册流程转化率下降，是否应该直接重写整个流程？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-4"],
+    "answer_contains": ["3-5 个低成本实验", "再决定是否扩大投入"],
+    "answer_not_contains": ["直接重写"],
+    "expected_behavior": "优先建议小范围验证，不直接支持高成本重写。"
+  },
+  {
+    "name": "正常_复盘转行动",
+    "category": "normal",
+    "query": "周会结束后如何避免大家只讨论不执行？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-2"],
+    "answer_contains": ["最小动作", "责任人", "截止时间"],
+    "answer_not_contains": ["云端模式"],
+    "expected_behavior": "把复盘结论转成有负责人和截止时间的最小行动。"
+  },
+  {
+    "name": "正常_手动记忆优先",
+    "category": "normal",
+    "query": "请基于这张需求评审卡，判断这个需求能否进入下个版本。",
+    "manual_memory_ids": ["m-3"],
+    "expected_memory_ids": ["m-3"],
+    "answer_contains": ["衡量指标", "优先级"],
+    "expected_behavior": "保留手动选择的记忆卡，并围绕当前问题回答，不被无关自动召回带偏。"
+  },
+  {
+    "name": "正常_无关问题",
+    "category": "normal",
+    "query": "下个月团队团建去哪里比较合适？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"],
+    "answer_contains": ["补充"],
+    "expected_behavior": "没有相关记忆时明确说明信息不足，不强行套用工作记忆。"
+  },
+  {
+    "name": "正常_多卡综合",
+    "category": "normal",
+    "query": "一个需求准备进入版本，应该怎样同时做好评审和验证？",
+    "manual_memory_ids": ["m-3", "m-4"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["先定问题", "衡量指标", "3-5 个低成本实验"],
+    "answer_not_contains": ["飞书云文档"],
+    "expected_behavior": "同时使用需求评审和验证实验两张卡，形成连续决策链路。"
+  }
+]

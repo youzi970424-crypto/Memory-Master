@@ -1,0 +1,166 @@
+[
+  {
+    "name": "需求评审单卡",
+    "query": "这个需求要不要直接进开发？",
+    "manual_memory_ids": ["m-3"],
+    "expected_memory_ids": ["m-3"],
+    "answer_contains": ["先定问题", "衡量指标", "优先级"],
+    "answer_not_contains": ["3-5 个低成本实验", "云端模式"]
+  },
+  {
+    "name": "版本验证单卡",
+    "query": "这个功能要不要先做大改版？",
+    "manual_memory_ids": ["m-4"],
+    "expected_memory_ids": ["m-4"],
+    "answer_contains": ["3-5 个低成本实验", "先做小范围", "再决定是否扩大投入"],
+    "answer_not_contains": ["先定问题", "飞书云文档"]
+  },
+  {
+    "name": "周会复盘单卡",
+    "query": "这次周会复盘后下一步怎么跟进？",
+    "manual_memory_ids": ["m-2"],
+    "expected_memory_ids": ["m-2"],
+    "answer_contains": ["最小动作", "责任人", "截止时间"],
+    "answer_not_contains": ["3-5 个低成本实验", "需求评审"]
+  },
+  {
+    "name": "云端协作单卡",
+    "query": "如何把这个模式用于团队协作和代码产物追溯？",
+    "manual_memory_ids": ["m-1"],
+    "expected_memory_ids": ["m-1"],
+    "answer_contains": ["云端模式", "飞书云文档", "独立追溯"],
+    "answer_not_contains": ["3-5 个低成本实验", "先定问题"]
+  },
+  {
+    "name": "双卡决策",
+    "query": "这个需求要不要进入下个版本？",
+    "manual_memory_ids": ["m-3", "m-4"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["先定问题", "衡量指标", "优先级", "3-5 个低成本实验", "再决定是否扩大投入"],
+    "answer_not_contains": ["空白", "飞书云文档"]
+  },
+  {
+    "name": "三卡长会议场景",
+    "query": "今天的产品评审会已经开完了。会上大家一致认为注册流程转化率在下滑，但还不能确认是不是整个体验都要推翻重做。老板希望这个需求尽快进入下个版本，运营同学则担心没有验证就直接改版风险太高。我们还约定本周内必须形成一个明确的推进方案，不能让讨论继续停留在会上。基于这三张记忆卡，帮我判断这件事下一步应该怎么推进，并给我一个可以直接同步给团队的结论。",
+    "manual_memory_ids": ["m-2", "m-3", "m-4"],
+    "expected_memory_ids": ["m-2", "m-3", "m-4"],
+    "answer_contains": ["先定问题", "衡量指标", "优先级", "3-5 个低成本实验", "责任人", "截止时间"],
+    "answer_not_contains": ["飞书云文档", "独立追溯", "m-"]
+  },
+  {
+    "name": "自动召回需求评审",
+    "query": "需求进入评审前，团队应该先准备哪些信息？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-3"],
+    "answer_contains": ["先定问题", "衡量指标", "优先级"],
+    "answer_not_contains": ["飞书云文档"]
+  },
+  {
+    "name": "自动召回注册实验",
+    "query": "注册流程转化率下降，是否应该直接重写整个流程？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-4"],
+    "answer_contains": ["3-5 个低成本实验", "再决定是否扩大投入"],
+    "answer_not_contains": ["飞书云文档"]
+  },
+  {
+    "name": "自动召回周会行动",
+    "query": "周会结束后如何避免大家只讨论不执行？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-2"],
+    "answer_contains": ["最小动作", "责任人", "截止时间"],
+    "answer_not_contains": ["云端模式"]
+  },
+  {
+    "name": "自动召回云端追溯",
+    "query": "团队协作时，怎样保证代码和产物可以独立追溯？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-1"],
+    "answer_contains": ["云端模式", "飞书云文档", "独立追溯"],
+    "answer_not_contains": ["3-5 个低成本实验"]
+  },
+  {
+    "name": "双卡评审与实验",
+    "query": "一个需求准备进入版本，应该怎样同时做好评审和验证？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["先定问题", "衡量指标", "3-5 个低成本实验"],
+    "answer_not_contains": ["飞书云文档"]
+  },
+  {
+    "name": "双卡复盘与版本",
+    "query": "版本延期后，如何把复盘结论转成下一轮计划？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-2", "hidden-1"],
+    "answer_contains": ["最小动作", "责任人", "截止时间"],
+    "answer_not_contains": ["m-", "飞书云文档"]
+  },
+  {
+    "name": "手动卡加自动卡",
+    "query": "我已经确定要做注册流程优化，还需要补充什么才能推进？",
+    "manual_memory_ids": ["m-3"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["衡量指标", "3-5 个低成本实验"],
+    "answer_not_contains": ["云端模式"]
+  },
+  {
+    "name": "手动双卡综合判断",
+    "query": "请结合需求评审原则和注册实验经验，判断这个需求能否进入下个版本。",
+    "manual_memory_ids": ["m-3", "m-4"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["先定问题", "3-5 个低成本实验", "再决定是否扩大投入"],
+    "answer_not_contains": ["飞书云文档"]
+  },
+  {
+    "name": "无关团建问题",
+    "query": "下个月团队团建去哪里比较合适？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"],
+    "answer_contains": ["补充"],
+    "answer_not_contains": ["m-1", "m-2", "m-3", "m-4", "hidden-1"]
+  },
+  {
+    "name": "无关招聘问题",
+    "query": "我们下季度招聘几个实习生比较合适？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"],
+    "answer_contains": ["补充"],
+    "answer_not_contains": ["飞书云文档", "3-5 个低成本实验"]
+  },
+  {
+    "name": "无关差旅问题",
+    "query": "下周去上海出差需要准备什么？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"],
+    "answer_contains": ["补充"],
+    "answer_not_contains": ["需求评审", "注册流程"]
+  },
+  {
+    "name": "无关预算问题",
+    "query": "今年部门团建预算应该如何分配？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"],
+    "answer_contains": ["补充"],
+    "answer_not_contains": ["飞书云文档", "注册流程"]
+  },
+  {
+    "name": "旧经验与新方案冲突",
+    "query": "历史上范围膨胀会导致延期，但这次是否仍然应该快速扩大改版范围？",
+    "manual_memory_ids": ["m-4"],
+    "expected_memory_ids": ["m-4", "hidden-1"],
+    "answer_contains": ["小范围", "再决定是否扩大投入"],
+    "answer_not_contains": ["确定可以直接扩大"]
+  },
+  {
+    "name": "评审与实验冲突处理",
+    "query": "老板要求尽快排期，运营担心没有验证，应该怎样处理这个冲突？",
+    "manual_memory_ids": ["m-3", "m-4"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "answer_contains": ["衡量指标", "小范围", "优先级"],
+    "answer_not_contains": ["直接重写"]
+  }
+]

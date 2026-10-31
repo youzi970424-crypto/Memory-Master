@@ -1,0 +1,43 @@
+[
+  {
+    "name": "过长_超过查询上限",
+    "category": "too_long",
+    "query_prefix": "请分析这个需求并给出下一步建议：",
+    "query_repeat": "项目背景、参与方、历史讨论和待确认信息。",
+    "query_repeat_count": 500,
+    "manual_memory_ids": [],
+    "expected_http_status": 400,
+    "expected_error_contains": ["query 不能超过 2000 字"],
+    "expected_behavior": "超过查询上限时明确提示长度限制，不调用模型。"
+  },
+  {
+    "name": "过长_接近上限",
+    "category": "too_long",
+    "query_prefix": "请结合需求评审原则，分析以下项目背景并给出推进建议：",
+    "query_repeat": "本周需要完成评审，团队正在确认目标、指标、范围和排期。",
+    "query_repeat_count": 28,
+    "manual_memory_ids": ["m-3"],
+    "expected_memory_ids": ["m-3"],
+    "answer_contains": ["衡量指标", "优先级"],
+    "expected_behavior": "接近上限但未超限时正常处理，保留核心问题和手动记忆卡。"
+  },
+  {
+    "name": "过长_长记忆卡注入",
+    "category": "too_long",
+    "query": "请基于这张记忆卡总结下一步动作。",
+    "manual_memory_ids": ["long-card"],
+    "expected_memory_ids": ["long-card"],
+    "expected_warning_contains": ["内容过长", "截断"],
+    "expected_behavior": "记忆卡原文不被覆盖，进入模型前截断或摘要，并返回处理提示。"
+  },
+  {
+    "name": "过长_超长内容仍保留意图",
+    "category": "too_long",
+    "query_prefix": "请判断这个版本是否应该扩大范围，核心问题是：",
+    "query_repeat": "当前已有小范围实验结果，需要结合衡量指标和优先级判断是否扩大投入。",
+    "query_repeat_count": 48,
+    "manual_memory_ids": ["m-3", "m-4"],
+    "expected_memory_ids": ["m-3", "m-4"],
+    "expected_behavior": "长文本处理后仍能识别决策意图，不应输出无关记忆或丢失用户核心问题。"
+  }
+]

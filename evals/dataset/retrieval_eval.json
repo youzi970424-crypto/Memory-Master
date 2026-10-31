@@ -1,0 +1,37 @@
+[
+  {
+    "name": "关键词命中注册实验",
+    "query": "注册流程要不要先做低成本实验？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-4"],
+    "forbidden_memory_ids": ["m-1", "m-3"]
+  },
+  {
+    "name": "关键词命中需求评审",
+    "query": "需求评审前需要准备什么？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": ["m-3"],
+    "forbidden_memory_ids": ["m-1", "m-4"]
+  },
+  {
+    "name": "无高相关记忆",
+    "query": "下个月去哪里团建？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3", "m-4", "hidden-1"]
+  },
+  {
+    "name": "隐藏记忆只参与后台召回",
+    "query": "为什么历史版本容易延期？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "forbidden_visible_citation_ids": ["hidden-1"]
+  },
+  {
+    "name": "手动记忆优先保留",
+    "query": "注册流程要不要先做低成本实验？",
+    "manual_memory_ids": ["m-4"],
+    "expected_memory_ids": ["m-4"],
+    "forbidden_memory_ids": ["m-1", "m-2", "m-3"]
+  }
+]

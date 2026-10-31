@@ -1,0 +1,47 @@
+[
+  {
+    "name": "过少_空字符串",
+    "category": "too_short",
+    "query": "",
+    "manual_memory_ids": [],
+    "expected_http_status": 400,
+    "expected_error_contains": ["query 不能为空"],
+    "expected_behavior": "直接提示用户补充具体问题，不调用模型、不召回记忆。"
+  },
+  {
+    "name": "过少_单字符",
+    "category": "too_short",
+    "query": "嗯",
+    "manual_memory_ids": [],
+    "expected_behavior": "提示当前问题过短，要求补充目标、背景或希望完成的动作。"
+  },
+  {
+    "name": "过少_纯数字",
+    "category": "too_short",
+    "query": "212121",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "answer_contains": ["无法判断意图", "补充"],
+    "answer_not_contains": ["先定问题", "3-5 个低成本实验"],
+    "expected_behavior": "不能根据记忆卡猜测用户意图，引用和行动项应为空。"
+  },
+  {
+    "name": "过少_无意义符号",
+    "category": "too_short",
+    "query": "？？？",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "answer_contains": ["无法判断意图", "补充"],
+    "answer_not_contains": ["需求评审", "注册流程"],
+    "expected_behavior": "识别为无法判断意图，要求用户重新描述问题。"
+  },
+  {
+    "name": "过少_泛化短问",
+    "category": "too_short",
+    "query": "怎么办",
+    "manual_memory_ids": [],
+    "expected_memory_ids": [],
+    "answer_contains": ["补充"],
+    "expected_behavior": "追问具体事项、目标、背景和期望输出，不输出泛化结论。"
+  }
+]

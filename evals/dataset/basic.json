@@ -1,0 +1,17 @@
+[
+  {
+    "name": "命中注册实验",
+    "query": "注册流程要不要先做低成本实验？",
+    "expected_memory_ids": ["m-4"]
+  },
+  {
+    "name": "命中需求评审",
+    "query": "需求评审前需要准备什么？",
+    "expected_memory_ids": ["m-3"]
+  },
+  {
+    "name": "无高相关记忆",
+    "query": "下个月去哪里团建？",
+    "expected_memory_ids": []
+  }
+]

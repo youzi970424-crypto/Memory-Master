@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "记忆大师",
+  "version": "0.1.0",
+  "identifier": "com.memorymaster.desktop",
+  "build": {
+    "beforeDevCommand": "pnpm desktop:prepare && pnpm dev:all",
+    "devUrl": "http://127.0.0.1:3001",
+    "beforeBuildCommand": "pnpm desktop:prepare && pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "记忆大师",
+        "width": 1280,
+        "height": 820,
+        "minWidth": 1024,
+        "minHeight": 680,
+        "decorations": false,
+        "transparent": true,
+        "backgroundColor": "#00000000"
+      }
+    ],
+    "macOSPrivateApi": true,
+    "security": {
+      "csp": "default-src 'self' http://127.0.0.1:8765; connect-src 'self' http://127.0.0.1:8765; img-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/icon.icns",
+      "icons/icon.png"
+    ],
+    "resources": {
+      "../services/api/server.py": "services/api/server.py",
+      "../services/api/model-defaults.local.json": "services/api/model-defaults.local.json",
+      "../prompts/": "prompts/"
+    }
+  }
+}
